@@ -1,0 +1,10 @@
+{
+    "server": {
+        "routes": {
+            "network":{
+                "reponse":"",
+                "controller": ""
+            }
+        }
+    }
+}
