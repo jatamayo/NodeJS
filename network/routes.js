@@ -1,9 +1,6 @@
-/**
- * ROUTES.JS define las rutas de nuestra api
- * 
- */
-const message = require('../components/message/network'); // componente - rutas - menssage
-
+// Este documento sera nuestro servidor de rutas
+const express = require('express');
+const message = require('../components/message/network');
 
 const routes = (server) => {
     server.use('/message', message);
