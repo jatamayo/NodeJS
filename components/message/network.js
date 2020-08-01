@@ -1,21 +1,28 @@
 const express = require('express');
 const response = require('../../network/response');
+const controller = require('./controller');
 
 const router = express.Router();
 
+
 router.get('/', (req, res)=>{
-    res.header({
-        "customHeader": "nuestro valor personalizado"
-    })
-    response.success(req, res, 'lista de mensajes');
+    controller.getMessages()
+        .then((result)=>{
+            response.success(req, res, result, 200);
+        })
+        .catch((error)=>{
+            response.error(req, res, 'Unexpected Error', 500, error);
+        })
 })
 
 router.post('/', (req, res)=>{
-    if(req.query.error === 'ok'){
-        response.error(req, res, 'Error inesperado', 500, 'es una simulacion');
-    }else{
-        response.success(req, res, 'creado correctamente', 200);
-    }
+    controller.addMessage(req.body.user, req.body.message)
+        .then((result)=>{
+            response.success(req, res, result, 200);
+        })
+        .catch((error)=>{
+            response.error(req, res, 'Informacion Invalida', 400, error);
+        })
 })
 
 module.exports = router;

@@ -1,6 +1,6 @@
 // Aqui tendremos nuestra capa de respuestas de red
 // con este archivo podremos estandarizar las respuetas de nuestras peticiones
-
+//----------------------------------------------------------------------------
 exports.success = (req, res, message, status) => {
     res.status(status || 200).send({
         error: "",

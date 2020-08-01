@@ -12,5 +12,6 @@ router(app);
 // Servidores estaticos
 app.use('/app', express.static('public'));
 
+// Puerto en el que estaremos escuchando
 app.listen(3000);
 console.log("puerto escuchando en localhost:3000");
